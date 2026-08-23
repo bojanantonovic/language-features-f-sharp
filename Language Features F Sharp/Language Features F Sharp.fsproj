@@ -48,6 +48,7 @@
         <Compile Include="Masseinheiten.fs"/>
         <Compile Include="Berechnungsausdruecke.fs"/>
         <Compile Include="ObjektAusdruecke.fs"/>
+        <Compile Include="SIMD.fs"/>
         <Compile Include="Program.fs"/>
     </ItemGroup>
 

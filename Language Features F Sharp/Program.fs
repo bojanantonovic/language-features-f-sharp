@@ -45,5 +45,6 @@ let main _ =
     Masseinheiten.zeigen ()
     Berechnungsausdruecke.zeigen ()
     ObjektAusdruecke.zeigen ()
+    SIMD.zeigen ()
 
     0

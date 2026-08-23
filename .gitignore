@@ -2,3 +2,5 @@
 bin/
 obj/
 .claude/
+.DS_Store
+*.user
