@@ -1,15 +1,15 @@
 module language_features_f_sharp.Generics
 
-// Generische Funktion: 'T ist ein Platzhalter fuer einen beliebigen Typ. F# leitet aus der
-// Verwendung von ">" automatisch einen "comparison"-Constraint fuer 'T ab (kein "where" noetig).
-let groesser (a: 'T) (b: 'T) : 'T =
+// Generic function: 'T is a placeholder for any type. F# automatically infers a
+// "comparison" constraint for 'T from the use of ">" (no "where" needed).
+let greater (a: 'T) (b: 'T) : 'T =
     if a > b then a else b
 
-let zeigen () =
-    // Dieselbe Funktion "groesser" funktioniert fuer int und string,
-    // ohne dass sie fuer jeden Typ neu geschrieben werden muss.
-    let groessereZahl = groesser 5 12
-    let groessererName = groesser "Anna" "Bob"
+let show () =
+    // The same function "greater" works for int and string,
+    // without having to be rewritten for every type.
+    let greaterNumber = greater 5 12
+    let greaterName = greater "Anna" "Bob"
 
-    printfn "%d" groessereZahl
-    printfn "%s" groessererName
+    printfn "%d" greaterNumber
+    printfn "%s" greaterName

@@ -1,41 +1,41 @@
 module language_features_f_sharp.Strings
 
-let zeigen () =
+let show () =
     let name = "Alice"
-    let alter = 30
-    let preis = 19.999
+    let age = 30
+    let price = 19.999
 
-    // String-Interpolation: Werte direkt im String einsetzen, mit $ vor den Anfuehrungszeichen
-    let begruessung = $"Hallo, {name}!"
+    // String interpolation: insert values directly into the string, with $ before the quotes
+    let greeting = $"Hello, {name}!"
 
-    // Auch Berechnungen sind innerhalb von {} moeglich
-    let altersinfo = $"{name} ist {alter} Jahre alt, in 10 Jahren {alter + 10}."
+    // Calculations are also possible inside {}
+    let ageInfo = $"{name} is {age} years old, in 10 years {age + 10}."
 
-    // Formatierung innerhalb von {}: %.2f rundet auf 2 Nachkommastellen (printf-Formatangabe statt .NET-Formatstring)
-    let preisText = $"Preis: %.2f{preis}"
+    // Formatting inside {}: %.2f rounds to 2 decimal places (printf format specifier instead of a .NET format string)
+    let priceText = $"Price: %.2f{price}"
 
-    printfn "%s" begruessung
-    printfn "%s" altersinfo
-    printfn "%s" preisText
+    printfn "%s" greeting
+    printfn "%s" ageInfo
+    printfn "%s" priceText
 
-    // Raw/Verbatim-String (@"..."): Escape-Zeichen wie \ werden nicht interpretiert, nuetzlich fuer Pfade
-    let pfad = @"C:\Daten\Alice\Notizen.txt"
+    // Raw/verbatim string (@"..."): escape characters like \ are not interpreted, useful for paths
+    let path = @"C:\Data\Alice\Notes.txt"
 
-    // Split: zerlegt einen String an einem Trennzeichen in mehrere Teile
-    let csv = "Apfel, Birne , Kirsche"
-    let teile = csv.Split(',')
+    // Split: breaks a string into several parts at a separator
+    let csv = "Apple, Pear , Cherry"
+    let parts = csv.Split(',')
 
-    // Trim entfernt Leerzeichen am Anfang/Ende jedes Teils
-    let getrimmteTeile = teile |> Array.map (fun teil -> teil.Trim())
+    // Trim removes whitespace at the start/end of each part
+    let trimmedParts = parts |> Array.map (fun part -> part.Trim())
 
-    // String.concat: fuegt mehrere Teile wieder zu einem String zusammen
-    let zusammengefuegt = String.concat " | " getrimmteTeile
+    // String.concat: joins several parts back into one string
+    let joined = String.concat " | " trimmedParts
 
-    // Pruefungen auf Teilstrings
-    let enthaeltBirne = zusammengefuegt.Contains("Birne")
-    let startetMitApfel = zusammengefuegt.StartsWith("Apfel")
+    // Checks for substrings
+    let containsPear = joined.Contains("Pear")
+    let startsWithApple = joined.StartsWith("Apple")
 
-    printfn "%s" pfad
-    printfn "%s" zusammengefuegt
-    printfn "%b" enthaeltBirne
-    printfn "%b" startetMitApfel
+    printfn "%s" path
+    printfn "%s" joined
+    printfn "%b" containsPear
+    printfn "%b" startsWithApple

@@ -2,44 +2,44 @@ module language_features_f_sharp.SIMD
 
 open System.Numerics
 
-// Vector<'T> bildet je nach CPU (SSE, AVX, AVX-512) mehrere Werte gleichzeitig ab;
-// Vector<float32>.Count verraet erst zur Laufzeit, wie viele float32-Werte in einen Vektor passen (z. B. 4, 8 oder 16).
-let private summeSimd (werte: float32[]) =
-    let breite = Vector<float32>.Count
-    let mutable akkumulator = Vector<float32>.Zero
+// Vector<'T> maps several values at once depending on the CPU (SSE, AVX, AVX-512);
+// Vector<float32>.Count only reveals at runtime how many float32 values fit into one vector (e.g. 4, 8, or 16).
+let private sumSimd (values: float32[]) =
+    let width = Vector<float32>.Count
+    let mutable accumulator = Vector<float32>.Zero
     let mutable i = 0
 
-    // Solange ein voller SIMD-Block passt, werden "breite" Werte in einer Operation addiert statt einzeln
-    while i + breite <= werte.Length do
-        let block = Vector<float32>(werte, i)
-        akkumulator <- akkumulator + block
-        i <- i + breite
+    // As long as a full SIMD block fits, "width" values are added in one operation instead of individually
+    while i + width <= values.Length do
+        let block = Vector<float32>(values, i)
+        accumulator <- accumulator + block
+        i <- i + width
 
-    // Vector.Dot mit einem Einsvektor addiert alle Komponenten des Akkumulators zu einem einzelnen Skalar
-    let mutable summe = Vector.Dot(akkumulator, Vector<float32>.One)
+    // Vector.Dot with a ones-vector adds up all components of the accumulator into a single scalar
+    let mutable sum = Vector.Dot(accumulator, Vector<float32>.One)
 
-    // uebrig gebliebene Werte, die keinen vollen Block mehr fuellen, werden normal (skalar) addiert
-    while i < werte.Length do
-        summe <- summe + werte.[i]
+    // remaining values that don't fill a full block anymore are added normally (scalar)
+    while i < values.Length do
+        sum <- sum + values.[i]
         i <- i + 1
 
-    summe
+    sum
 
-let zeigen () =
-    printfn "Hardware-Beschleunigung aktiv: %b" Vector.IsHardwareAccelerated
-    printfn "Breite eines float32-Vektors auf dieser CPU: %d" Vector<float32>.Count
+let show () =
+    printfn "Hardware acceleration active: %b" Vector.IsHardwareAccelerated
+    printfn "Width of a float32 vector on this CPU: %d" Vector<float32>.Count
 
-    let werte = [| for n in 1 .. 17 -> float32 n |]
-    let summe = summeSimd werte
+    let values = [| for n in 1 .. 17 -> float32 n |]
+    let sum = sumSimd values
 
-    printfn "%f" summe
+    printfn "%f" sum
 
-    // Vector3 ist ein fester 3-Komponenten-Vektor (z. B. fuer 3D-Koordinaten) mit ueberladenen Operatoren
+    // Vector3 is a fixed 3-component vector (e.g. for 3D coordinates) with overloaded operators
     let a = Vector3(1.0f, 2.0f, 3.0f)
     let b = Vector3(4.0f, 5.0f, 6.0f)
 
-    let summeVektoren = a + b
-    let skalarprodukt = Vector3.Dot(a, b)
+    let vectorSum = a + b
+    let dotProduct = Vector3.Dot(a, b)
 
-    printfn "%O" summeVektoren
-    printfn "%f" skalarprodukt
+    printfn "%O" vectorSum
+    printfn "%f" dotProduct

@@ -1,48 +1,48 @@
 module language_features_f_sharp.Delegates
 
-// Funktionswert: In F# sind Funktionen selbst schon "First-Class-Werte" - ein eigener Delegate-Typ
-// wie in C# (RechenOperation) ist normalerweise unnoetig, eine einfache Signatur genuegt.
-type RechenOperation = int -> int -> int
+// Function value: in F#, functions are already "first-class values" - a dedicated delegate type
+// like in C# (CalculationOperation) is normally unnecessary, a plain signature suffices.
+type CalculationOperation = int -> int -> int
 
-// Klasse mit einem Event: benachrichtigt andere Codeteile, wenn sich etwas aendert
-type Konto() =
-    let mutable guthaben = 0m
-    let guthabenGeaendert = Event<decimal>()
+// Class with an event: notifies other parts of the code when something changes
+type Account() =
+    let mutable balance = 0m
+    let balanceChanged = Event<decimal>()
 
-    member this.Guthaben = guthaben
+    member this.Balance = balance
 
-    // Event: andere Codeteile abonnieren ueber "Publish"
+    // Event: other parts of the code subscribe via "Publish"
     [<CLIEvent>]
-    member this.GuthabenGeaendert = guthabenGeaendert.Publish
+    member this.BalanceChanged = balanceChanged.Publish
 
-    member this.Einzahlen(betrag: decimal) =
-        guthaben <- guthaben + betrag
-        guthabenGeaendert.Trigger(guthaben) // loest das Event aus, falls jemand zuhoert
+    member this.Deposit(amount: decimal) =
+        balance <- balance + amount
+        balanceChanged.Trigger(balance) // raises the event, if anyone is listening
 
-let private addieren a b = a + b
+let private add a b = a + b
 
-let zeigen () =
-    // Funktionswert: einer Funktion zuweisen und wie eine Variable aufrufen
-    let addierenFn: RechenOperation = addieren
-    let summe = addierenFn 3 4
+let show () =
+    // Function value: assign it to a function and call it like a variable
+    let addFn: CalculationOperation = add
+    let sum = addFn 3 4
 
-    // Funktionswert: einem Lambda-Ausdruck zuweisen
-    let multiplizieren: RechenOperation = fun a b -> a * b
-    let produkt = multiplizieren 3 4
+    // Function value: assign it to a lambda expression
+    let multiply: CalculationOperation = fun a b -> a * b
+    let product = multiply 3 4
 
-    printfn "%d" summe
-    printfn "%d" produkt
+    printfn "%d" sum
+    printfn "%d" product
 
-    // Liste von Funktionswerten: List.map wendet jeden einzelnen auf dieselben Argumente an
-    let operationen: RechenOperation list = [ addieren; (fun a b -> a * b); (fun a b -> a - b) ]
+    // List of function values: List.map applies each one to the same arguments
+    let operations: CalculationOperation list = [ add; (fun a b -> a * b); (fun a b -> a - b) ]
 
-    let ergebnisse = operationen |> List.map (fun operation -> operation 10 3)
+    let results = operations |> List.map (fun operation -> operation 10 3)
 
-    printfn "%s" (String.concat ", " (ergebnisse |> List.map string))
+    printfn "%s" (String.concat ", " (results |> List.map string))
 
-    // Event abonnieren: das Lambda wird aufgerufen, sobald GuthabenGeaendert ausgeloest wird
-    let konto = Konto()
-    konto.GuthabenGeaendert.Add(fun neuesGuthaben -> printfn "%M" neuesGuthaben)
+    // Subscribe to the event: the lambda is called as soon as BalanceChanged is raised
+    let account = Account()
+    account.BalanceChanged.Add(fun newBalance -> printfn "%M" newBalance)
 
-    konto.Einzahlen(100m)
-    konto.Einzahlen(50m)
+    account.Deposit(100m)
+    account.Deposit(50m)

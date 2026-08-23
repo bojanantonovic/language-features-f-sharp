@@ -1,32 +1,32 @@
 module language_features_f_sharp.Structs
 
-// [<Struct>]: Werttyp - wird bei Zuweisung kopiert, im Gegensatz zu einer Klasse (Referenztyp),
-// bei der zwei Bindings dieselbe Instanz teilen wuerden.
+// [<Struct>]: value type - copied on assignment, unlike a class (reference type),
+// where two bindings would share the same instance.
 [<Struct>]
-type Punkt(x: int, y: int) =
+type Point(x: int, y: int) =
     member this.X = x
     member this.Y = y
 
-let zeigen () =
-    let punktA = Punkt(1, 2)
-    let punktB = punktA // erzeugt eine Kopie, nicht dieselbe Instanz
+let show () =
+    let pointA = Point(1, 2)
+    let pointB = pointA // creates a copy, not the same instance
 
-    let punktAX = punktA.X
-    let punktBX = punktB.X
+    let pointAX = pointA.X
+    let pointBX = pointB.X
 
-    printfn "%d" punktAX
-    printfn "%d" punktBX
+    printfn "%d" pointAX
+    printfn "%d" pointBX
 
-    // Liste von structs: List.map berechnet aus jedem Punkt einen neuen Wert,
-    // die urspruengliche Liste bleibt dabei unveraendert
-    let punkte = [ Punkt(1, 2); Punkt(-3, 4); Punkt(5, -1) ]
+    // List of structs: List.map computes a new value from each point,
+    // the original list remains unchanged
+    let points = [ Point(1, 2); Point(-3, 4); Point(5, -1) ]
 
-    let entfernungenVomUrsprung =
-        punkte |> List.map (fun p -> sqrt (float (p.X * p.X + p.Y * p.Y)))
+    let distancesFromOrigin =
+        points |> List.map (fun p -> sqrt (float (p.X * p.X + p.Y * p.Y)))
 
-    // List.minBy: den Punkt mit der kleinsten Entfernung zum Ursprung finden
-    let naechsterPunkt =
-        punkte |> List.minBy (fun p -> sqrt (float (p.X * p.X + p.Y * p.Y)))
+    // List.minBy: find the point with the smallest distance to the origin
+    let closestPoint =
+        points |> List.minBy (fun p -> sqrt (float (p.X * p.X + p.Y * p.Y)))
 
-    printfn "%s" (String.concat ", " (entfernungenVomUrsprung |> List.map string))
-    printfn "%d, %d" naechsterPunkt.X naechsterPunkt.Y
+    printfn "%s" (String.concat ", " (distancesFromOrigin |> List.map string))
+    printfn "%d, %d" closestPoint.X closestPoint.Y

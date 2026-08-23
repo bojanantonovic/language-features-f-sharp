@@ -1,36 +1,36 @@
 module language_features_f_sharp.Exceptions
 
-// Eigener Exception-Typ: "exception" definiert einen F#-eigenen Ausnahmetyp
-// (Aequivalent zu einer von Exception abgeleiteten Klasse in C#) inklusive einer Nutzlast (string).
-exception UngueltigesAlterException of string
+// Custom exception type: "exception" defines an F#-native exception type
+// (equivalent to a class derived from Exception in C#) including a payload (string).
+exception InvalidAgeException of string
 
-// wirft die eigene Exception, wenn der uebergebene Wert fachlich ungueltig ist
-let pruefeAlter alter =
-    if alter < 0 then
-        raise (UngueltigesAlterException $"Alter darf nicht negativ sein: {alter}")
+// throws the custom exception when the given value is not domain-valid
+let checkAge age =
+    if age < 0 then
+        raise (InvalidAgeException $"Age must not be negative: {age}")
 
-let sicherDividieren zaehler nenner =
+let safeDivide numerator denominator =
     try
         try
-            let ergebnis = zaehler / nenner
-            ergebnis
+            let result = numerator / denominator
+            result
         with :? System.DivideByZeroException ->
-            // "with" faengt die Exception ab, statt das Programm abstuerzen zu lassen
-            printfn "Fehler: Division durch 0 ist nicht erlaubt."
+            // "with" catches the exception instead of letting the program crash
+            printfn "Error: division by 0 is not allowed."
             0
     finally
-        // finally laeuft immer, egal ob eine Exception aufgetreten ist oder nicht
-        printfn "sicherDividieren wurde aufgerufen."
+        // finally always runs, whether or not an exception occurred
+        printfn "safeDivide was called."
 
-let zeigen () =
-    let ergebnisOk = sicherDividieren 10 2
-    let ergebnisFehler = sicherDividieren 10 0
+let show () =
+    let resultOk = safeDivide 10 2
+    let resultError = safeDivide 10 0
 
-    printfn "%d" ergebnisOk
-    printfn "%d" ergebnisFehler
+    printfn "%d" resultOk
+    printfn "%d" resultError
 
     try
-        pruefeAlter -5
-    with UngueltigesAlterException nachricht ->
-        // faengt gezielt nur unsere eigene Exception ab, nicht jede beliebige Exception
-        printfn "%s" nachricht
+        checkAge -5
+    with InvalidAgeException message ->
+        // catches only our own exception specifically, not just any exception
+        printfn "%s" message

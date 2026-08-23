@@ -2,32 +2,32 @@ module language_features_f_sharp.Extensions
 
 open System
 
-// Typerweiterung: fuegt einem bestehenden Typ (hier: System.String) im Nachhinein neue Mitglieder hinzu,
-// ohne dessen Quelltext zu besitzen oder zu aendern (Aequivalent zu C#s Extension-Methoden).
+// Type extension: adds new members to an existing type (here: System.String) after the fact,
+// without owning or modifying its source code (equivalent to C#'s extension methods).
 type String with
-    member this.Umdrehen() =
-        let zeichen = this |> Seq.rev |> Seq.toArray
-        String(zeichen)
+    member this.Reverse() =
+        let chars = this |> Seq.rev |> Seq.toArray
+        String(chars)
 
-    member this.IstPalindrom() =
-        String.Equals(this, this.Umdrehen(), StringComparison.OrdinalIgnoreCase)
+    member this.IsPalindrome() =
+        String.Equals(this, this.Reverse(), StringComparison.OrdinalIgnoreCase)
 
-let zeigen () =
-    let wort = "Anna"
+let show () =
+    let word = "Anna"
 
-    // sieht wie ein ganz normaler Methodenaufruf auf string aus, obwohl string selbst nicht
-    // veraendert wurde - die Erweiterung muss dafuer sichtbar sein (hier: derselbe Namespace)
-    let istPalindrom = wort.IstPalindrom()
-    let umgedreht = wort.Umdrehen()
+    // looks like a completely normal method call on string, even though string itself was not
+    // modified - the extension has to be visible for this (here: same namespace)
+    let isPalindrome = word.IsPalindrome()
+    let reversed = word.Reverse()
 
-    printfn "%b" istPalindrom
-    printfn "%s" umgedreht
+    printfn "%b" isPalindrome
+    printfn "%s" reversed
 
-    // Liste von Woertern: die Typerweiterungen lassen sich direkt in Lambdas verwenden
-    let woerter = [ "Anna"; "Otto"; "Haus"; "Level"; "Baum" ]
+    // List of words: the type extensions can be used directly in lambdas
+    let words = [ "Anna"; "Otto"; "Haus"; "Level"; "Baum" ]
 
-    let palindrome = woerter |> List.filter (fun w -> w.IstPalindrom())
-    let umgedreheWoerter = woerter |> List.map (fun w -> w.Umdrehen())
+    let palindromes = words |> List.filter (fun w -> w.IsPalindrome())
+    let reversedWords = words |> List.map (fun w -> w.Reverse())
 
-    printfn "%s" (String.concat ", " palindrome)
-    printfn "%s" (String.concat ", " umgedreheWoerter)
+    printfn "%s" (String.concat ", " palindromes)
+    printfn "%s" (String.concat ", " reversedWords)

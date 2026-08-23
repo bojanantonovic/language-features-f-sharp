@@ -1,35 +1,35 @@
 module language_features_f_sharp.Collections
 
-let zeigen () =
-    let zahlen = [ 5; 12; 3; 8; 21; 4 ]
+let show () =
+    let numbers = [ 5; 12; 3; 8; 21; 4 ]
 
-    // List.filter: filtert Elemente, die eine Bedingung erfuellen
-    let geradeZahlen = zahlen |> List.filter (fun zahl -> zahl % 2 = 0)
+    // List.filter: filters elements that satisfy a condition
+    let evenNumbers = numbers |> List.filter (fun number -> number % 2 = 0)
 
-    // List.map: wandelt jedes Element um
-    let verdoppelt = zahlen |> List.map (fun zahl -> zahl * 2)
+    // List.map: transforms each element
+    let doubled = numbers |> List.map (fun number -> number * 2)
 
-    // List.sort: sortiert aufsteigend, ohne die urspruengliche Liste zu veraendern
-    let sortiert = zahlen |> List.sort
+    // List.sort: sorts ascending, without mutating the original list
+    let sorted = numbers |> List.sort
 
-    // Aggregat-Funktionen liefern direkt einen einzelnen Wert statt einer Liste
-    let summe = zahlen |> List.sum
-    let durchschnitt = zahlen |> List.averageBy float
-    let groessteZahl = zahlen |> List.max
+    // Aggregate functions return a single value directly instead of a list
+    let sum = numbers |> List.sum
+    let average = numbers |> List.averageBy float
+    let largestNumber = numbers |> List.max
 
-    printfn "%s" (String.concat ", " (geradeZahlen |> List.map string))
-    printfn "%s" (String.concat ", " (verdoppelt |> List.map string))
-    printfn "%s" (String.concat ", " (sortiert |> List.map string))
-    printfn "%d" summe
-    printfn "%f" durchschnitt
-    printfn "%d" groessteZahl
+    printfn "%s" (String.concat ", " (evenNumbers |> List.map string))
+    printfn "%s" (String.concat ", " (doubled |> List.map string))
+    printfn "%s" (String.concat ", " (sorted |> List.map string))
+    printfn "%d" sum
+    printfn "%f" average
+    printfn "%d" largestNumber
 
-    // Map: F#s unveraenderliche Alternative zu Dictionary (siehe Woerterbuch.fs), intern ein balancierter Baum
-    let alterNachName = Map.ofList [ "Alice", 30; "Bob", 25 ]
-    let alterNachNameErweitert = alterNachName |> Map.add "Carol" 40
+    // Map: F#'s immutable alternative to Dictionary (see Dictionary.fs), internally a balanced tree
+    let ageByName = Map.ofList [ "Alice", 30; "Bob", 25 ]
+    let ageByNameExtended = ageByName |> Map.add "Carol" 40
 
-    // Set: unveraenderliche Menge ohne Duplikate
-    let einzigartigeZahlen = Set.ofList [ 1; 2; 2; 3; 3; 3 ]
+    // Set: immutable collection without duplicates
+    let uniqueNumbers = Set.ofList [ 1; 2; 2; 3; 3; 3 ]
 
-    printfn "%d" alterNachNameErweitert.["Carol"]
-    printfn "%d" einzigartigeZahlen.Count
+    printfn "%d" ageByNameExtended.["Carol"]
+    printfn "%d" uniqueNumbers.Count

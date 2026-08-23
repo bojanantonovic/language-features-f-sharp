@@ -2,35 +2,35 @@ module language_features_f_sharp.Indexer
 
 open System.Collections.Generic
 
-// Eigene Klasse mit Indexer: "member this.Item" mit get/set erlaubt Zugriff mit eckigen Klammern
-// wie bei einem Array, obwohl intern ein Dictionary die Daten haelt.
-type Wochenplan() =
-    let termineNachTag = Dictionary<string, string>()
+// Custom class with an indexer: "member this.Item" with get/set allows access with square brackets
+// like an array, even though a Dictionary holds the data internally.
+type WeeklySchedule() =
+    let appointmentsByDay = Dictionary<string, string>()
 
     member this.Item
-        with get (tag: string) =
-            match termineNachTag.TryGetValue(tag) with
-            | true, termin -> termin
-            | false, _ -> "frei"
-        and set (tag: string) (wert: string) = termineNachTag.[tag] <- wert
+        with get (day: string) =
+            match appointmentsByDay.TryGetValue(day) with
+            | true, appointment -> appointment
+            | false, _ -> "free"
+        and set (day: string) (value: string) = appointmentsByDay.[day] <- value
 
-let zeigen () =
-    let plan = Wochenplan()
+let show () =
+    let schedule = WeeklySchedule()
 
-    // Zuweisung ueber den Indexer, genau wie bei einem Array
-    plan.["Montag"] <- "Zahnarzt"
-    plan.["Mittwoch"] <- "Meeting"
+    // Assignment via the indexer, just like an array
+    schedule.["Monday"] <- "Dentist"
+    schedule.["Wednesday"] <- "Meeting"
 
-    // Lesen ueber den Indexer
-    let montagTermin = plan.["Montag"]
-    let dienstagTermin = plan.["Dienstag"] // kein Eintrag vorhanden -> "frei"
+    // Reading via the indexer
+    let mondayAppointment = schedule.["Monday"]
+    let tuesdayAppointment = schedule.["Tuesday"] // no entry present -> "free"
 
-    printfn "%s" montagTermin
-    printfn "%s" dienstagTermin
+    printfn "%s" mondayAppointment
+    printfn "%s" tuesdayAppointment
 
-    // Liste von Tagen: List.map nutzt den Indexer, um pro Tag den Termin abzufragen
-    let tage = [ "Montag"; "Dienstag"; "Mittwoch" ]
+    // List of days: List.map uses the indexer to look up the appointment for each day
+    let days = [ "Monday"; "Tuesday"; "Wednesday" ]
 
-    let terminplan = tage |> List.map (fun tag -> $"{tag}: {plan.[tag]}")
+    let schedulePlan = days |> List.map (fun day -> $"{day}: {schedule.[day]}")
 
-    printfn "%s" (String.concat " | " terminplan)
+    printfn "%s" (String.concat " | " schedulePlan)
