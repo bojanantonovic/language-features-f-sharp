@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Language Features F Sharp", "Language Features F Sharp\Language Features F Sharp.fsproj", "{6DF30442-1143-4A11-AFEA-9E6318F20EC1}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "language-features-f-sharp", "language-features-f-sharp\language-features-f-sharp.fsproj", "{6DF30442-1143-4A11-AFEA-9E6318F20EC1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
