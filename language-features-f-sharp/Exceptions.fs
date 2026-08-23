@@ -1,4 +1,4 @@
-module Language_Features_F_Sharp.Exceptions
+module language_features_f_sharp.Exceptions
 
 // Eigener Exception-Typ: "exception" definiert einen F#-eigenen Ausnahmetyp
 // (Aequivalent zu einer von Exception abgeleiteten Klasse in C#) inklusive einer Nutzlast (string).

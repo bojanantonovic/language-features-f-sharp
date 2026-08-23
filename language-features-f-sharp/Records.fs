@@ -1,4 +1,4 @@
-module Language_Features_F_Sharp.Records
+module language_features_f_sharp.Records
 
 // record: F#s native, kompakte Syntax fuer einen unveraenderlichen Datentyp mit automatischer
 // struktureller Gleichheit (C#s "record" wurde von diesem F#-Konzept inspiriert).

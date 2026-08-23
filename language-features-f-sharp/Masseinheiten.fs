@@ -1,4 +1,4 @@
-module Language_Features_F_Sharp.Masseinheiten
+module language_features_f_sharp.Masseinheiten
 
 // Units of Measure: haengt eine Masseinheit an einen Zahlentyp, rein zur Kompilierzeit geprueft -
 // zur Laufzeit bleibt es ein normaler float, ohne jeden Overhead. Hat keine Entsprechung in C#.

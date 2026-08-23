@@ -1,4 +1,4 @@
-module Language_Features_F_Sharp.SIMD
+module language_features_f_sharp.SIMD
 
 open System.Numerics
 

@@ -1,4 +1,4 @@
-module Language_Features_F_Sharp.Collections
+module language_features_f_sharp.Collections
 
 let zeigen () =
     let zahlen = [ 5; 12; 3; 8; 21; 4 ]

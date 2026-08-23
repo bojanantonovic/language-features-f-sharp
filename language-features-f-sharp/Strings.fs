@@ -1,4 +1,4 @@
-module Language_Features_F_Sharp.Strings
+module language_features_f_sharp.Strings
 
 let zeigen () =
     let name = "Alice"

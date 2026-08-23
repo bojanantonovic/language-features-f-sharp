@@ -1,4 +1,4 @@
-module Language_Features_F_Sharp.Unveraenderlichkeit
+module language_features_f_sharp.Unveraenderlichkeit
 
 let zeigen () =
     // let bindet einen Namen unveraenderlich an einen Wert - eine erneute Zuweisung ("wert <- 2")

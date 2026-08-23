@@ -1,7 +1,7 @@
-module Language_Features_F_Sharp.MusterAbgleich
+module language_features_f_sharp.MusterAbgleich
 
-open Language_Features_F_Sharp.Vererbung
-open Language_Features_F_Sharp.Structs
+open language_features_f_sharp.Vererbung
+open language_features_f_sharp.Structs
 
 let zeigen () =
     let note = 2

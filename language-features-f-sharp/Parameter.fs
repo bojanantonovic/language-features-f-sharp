@@ -1,6 +1,6 @@
-module Language_Features_F_Sharp.Parameter
+module language_features_f_sharp.Parameter
 
-open Language_Features_F_Sharp.Operatoren
+open language_features_f_sharp.Operatoren
 
 // byref<...>/outref<...>: F#s Aequivalent zu C#s "ref"/"out" - explizite Referenzparameter, auch auf
 // einer gewoehnlichen "let"-Funktion moeglich (anders als optionale Parameter weiter unten).

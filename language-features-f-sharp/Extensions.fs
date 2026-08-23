@@ -1,4 +1,4 @@
-module Language_Features_F_Sharp.Extensions
+module language_features_f_sharp.Extensions
 
 open System
 

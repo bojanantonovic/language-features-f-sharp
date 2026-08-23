@@ -1,4 +1,4 @@
-module Language_Features_F_Sharp.Operatoren
+module language_features_f_sharp.Operatoren
 
 // struct mit ueberladenem Operator: "static member (+)" legt fest, was "+" fuer diesen eigenen Typ bedeutet.
 [<Struct>]

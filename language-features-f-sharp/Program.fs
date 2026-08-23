@@ -1,6 +1,6 @@
-module Language_Features_F_Sharp.Program
+module language_features_f_sharp.Program
 
-open Language_Features_F_Sharp
+open language_features_f_sharp
 
 [<EntryPoint>]
 let main _ =

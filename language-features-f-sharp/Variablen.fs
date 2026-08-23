@@ -1,4 +1,4 @@
-module Language_Features_F_Sharp.Variablen
+module language_features_f_sharp.Variablen
 
 let zeigen () =
     // Ganzzahl

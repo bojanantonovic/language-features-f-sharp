@@ -1,4 +1,4 @@
-module Language_Features_F_Sharp.Konstruktor
+module language_features_f_sharp.Konstruktor
 
 // Klasse mit primaerem Konstruktor direkt im Typkopf: Eigenschaften werden bei der Erzeugung gesetzt.
 type Buch(titel: string, seitenzahl: int) =

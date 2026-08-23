@@ -1,6 +1,6 @@
-module Language_Features_F_Sharp.Polymorphismus
+module language_features_f_sharp.Polymorphismus
 
-open Language_Features_F_Sharp.Vererbung
+open language_features_f_sharp.Vererbung
 
 let zeigen () =
     // Funktionswert, der auf die (polymorphe) Methode MachGeraeusch zeigt

@@ -1,6 +1,6 @@
-module Language_Features_F_Sharp.Polymorphie
+module language_features_f_sharp.Polymorphie
 
-open Language_Features_F_Sharp.Vererbung
+open language_features_f_sharp.Vererbung
 
 let zeigen () =
     // Liste vom Basistyp Tier, enthaelt aber Objekte unterschiedlicher abgeleiteter Typen.

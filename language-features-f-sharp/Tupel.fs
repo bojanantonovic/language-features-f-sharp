@@ -1,4 +1,4 @@
-module Language_Features_F_Sharp.Tupel
+module language_features_f_sharp.Tupel
 
 // Tuple als Rueckgabewert einer Funktion: mehrere Werte zusammen zurueckgeben,
 // ohne dafuer einen eigenen Record zu brauchen.

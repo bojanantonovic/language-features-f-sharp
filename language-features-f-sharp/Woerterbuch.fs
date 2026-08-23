@@ -1,4 +1,4 @@
-module Language_Features_F_Sharp.Woerterbuch
+module language_features_f_sharp.Woerterbuch
 
 open System.Collections.Generic
 

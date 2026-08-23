@@ -1,4 +1,4 @@
-module Language_Features_F_Sharp.Generics
+module language_features_f_sharp.Generics
 
 // Generische Funktion: 'T ist ein Platzhalter fuer einen beliebigen Typ. F# leitet aus der
 // Verwendung von ">" automatisch einen "comparison"-Constraint fuer 'T ab (kein "where" noetig).

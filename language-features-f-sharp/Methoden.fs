@@ -1,4 +1,4 @@
-module Language_Features_F_Sharp.Methoden
+module language_features_f_sharp.Methoden
 
 // Funktion mit einem Parameter und Rueckgabewert: kein "return" noetig,
 // der letzte Ausdruck im Funktionskoerper ist automatisch der Rueckgabewert.

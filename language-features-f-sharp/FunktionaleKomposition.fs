@@ -1,4 +1,4 @@
-module Language_Features_F_Sharp.FunktionaleKomposition
+module language_features_f_sharp.FunktionaleKomposition
 
 // Currying: eine Funktion mit mehreren Parametern ist in Wahrheit eine Kette einstelliger Funktionen,
 // jede nimmt EINEN Parameter und liefert eine neue Funktion zurueck (Typ: int -> int -> int).

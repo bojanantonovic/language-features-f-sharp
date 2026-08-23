@@ -1,4 +1,4 @@
-module Language_Features_F_Sharp.Nullbarkeit
+module language_features_f_sharp.Nullbarkeit
 
 let zeigen () =
     // option: F#s eigener, typsicherer Ersatz fuer "null" - ein Wert ist entweder "Some x" oder "None",

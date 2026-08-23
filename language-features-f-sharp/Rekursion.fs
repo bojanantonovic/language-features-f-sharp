@@ -1,4 +1,4 @@
-module Language_Features_F_Sharp.Rekursion
+module language_features_f_sharp.Rekursion
 
 // "rec": macht eine Funktion innerhalb ihres eigenen Koerpers aufrufbar (in F# per Default AUS,
 // anders als in den meisten anderen Sprachen, in denen Funktionen sich automatisch selbst kennen).

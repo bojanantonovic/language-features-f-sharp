@@ -1,4 +1,4 @@
-module Language_Features_F_Sharp.Klassen
+module language_features_f_sharp.Klassen
 
 // Eigener Typ mit veraenderlichen Eigenschaften: "member val" erzeugt eine auto-implementierte
 // Property mit Getter UND Setter (vergleichbar mit C#s "{ get; set; }").

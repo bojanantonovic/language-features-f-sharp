@@ -1,4 +1,4 @@
-module Language_Features_F_Sharp.Bedingungen
+module language_features_f_sharp.Bedingungen
 
 let zeigen () =
     let alter = 30

@@ -1,4 +1,4 @@
-module Language_Features_F_Sharp.Enums
+module language_features_f_sharp.Enums
 
 // Enum: benannte Menge fester int-Werte. F#-Enums sind - anders als Discriminated Unions - immer
 // an einen Basis-Zahlentyp gebunden (siehe DiskriminierteVereinigungen.fs fuer die F#-eigene Alternative).

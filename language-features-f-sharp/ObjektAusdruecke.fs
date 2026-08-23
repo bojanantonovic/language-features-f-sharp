@@ -1,6 +1,6 @@
-module Language_Features_F_Sharp.ObjektAusdruecke
+module language_features_f_sharp.ObjektAusdruecke
 
-open Language_Features_F_Sharp.Interfaces
+open language_features_f_sharp.Interfaces
 
 // Object Expression: implementiert ein Interface (oder eine abstrakte Klasse) direkt an Ort und Stelle,
 // ganz ohne eigenen benannten Typ dafuer zu deklarieren. Hat keine direkte Entsprechung in C#

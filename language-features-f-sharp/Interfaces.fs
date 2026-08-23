@@ -1,4 +1,4 @@
-module Language_Features_F_Sharp.Interfaces
+module language_features_f_sharp.Interfaces
 
 // Interface: legt nur fest, WAS ein Typ koennen muss, nicht WIE (keine gemeinsame Basisklasse noetig).
 // F#-Interfaces bestehen ausschliesslich aus abstrakten Mitgliedern.

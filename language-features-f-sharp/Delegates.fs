@@ -1,4 +1,4 @@
-module Language_Features_F_Sharp.Delegates
+module language_features_f_sharp.Delegates
 
 // Funktionswert: In F# sind Funktionen selbst schon "First-Class-Werte" - ein eigener Delegate-Typ
 // wie in C# (RechenOperation) ist normalerweise unnoetig, eine einfache Signatur genuegt.

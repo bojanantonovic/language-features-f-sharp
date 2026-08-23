@@ -1,4 +1,4 @@
-module Language_Features_F_Sharp.Asynchronitaet
+module language_features_f_sharp.Asynchronitaet
 
 // async-Workflow: F#s natives Modell fuer asynchrone Berechnungen (aelter als C#s async/await und
 // eines der Vorbilder dafuer) - "let!"/"do!" warten auf ein Ergebnis, ohne den Thread zu blockieren.

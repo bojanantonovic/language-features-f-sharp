@@ -1,4 +1,4 @@
-module Language_Features_F_Sharp.Indexer
+module language_features_f_sharp.Indexer
 
 open System.Collections.Generic
 

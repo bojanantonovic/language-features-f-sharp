@@ -1,4 +1,4 @@
-module Language_Features_F_Sharp.Structs
+module language_features_f_sharp.Structs
 
 // [<Struct>]: Werttyp - wird bei Zuweisung kopiert, im Gegensatz zu einer Klasse (Referenztyp),
 // bei der zwei Bindings dieselbe Instanz teilen wuerden.

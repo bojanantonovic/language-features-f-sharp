@@ -1,4 +1,4 @@
-module Language_Features_F_Sharp.Iteratoren
+module language_features_f_sharp.Iteratoren
 
 // seq { yield ... } erzeugt die Werte erst nacheinander, wenn sie tatsaechlich abgefragt werden -
 // die Funktion selbst laeuft nicht sofort komplett durch (Aequivalent zu C#s "yield return").

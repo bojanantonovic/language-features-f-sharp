@@ -1,4 +1,4 @@
-module Language_Features_F_Sharp.Vererbung
+module language_features_f_sharp.Vererbung
 
 // Basisklasse: "abstract member" deklariert ein Mitglied, "default" liefert die Standardimplementierung,
 // die abgeleitete Klassen ueberschreiben koennen (das macht die Klasse hier NICHT abstrakt).

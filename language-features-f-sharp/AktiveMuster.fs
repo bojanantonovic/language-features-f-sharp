@@ -1,4 +1,4 @@
-module Language_Features_F_Sharp.AktiveMuster
+module language_features_f_sharp.AktiveMuster
 
 // Active Pattern: verpackt beliebige Erkennungslogik in ein eigenes, wiederverwendbares Pattern -
 // "Gerade"/"Ungerade" lassen sich danach genauso in einem match verwenden wie eingebaute Patterns.

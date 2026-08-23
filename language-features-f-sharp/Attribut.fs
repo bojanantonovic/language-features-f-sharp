@@ -1,4 +1,4 @@
-module Language_Features_F_Sharp.Attribut
+module language_features_f_sharp.Attribut
 
 open System.Reflection
 

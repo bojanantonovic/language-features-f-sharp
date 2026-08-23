@@ -1,4 +1,4 @@
-module Language_Features_F_Sharp.Schleifen
+module language_features_f_sharp.Schleifen
 
 let zeigen () =
     // for-Schleife ueber einen Bereich (Range): Summe der Zahlen 1 bis 5.

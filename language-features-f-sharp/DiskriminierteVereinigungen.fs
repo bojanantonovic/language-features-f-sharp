@@ -1,4 +1,4 @@
-module Language_Features_F_Sharp.DiskriminierteVereinigungen
+module language_features_f_sharp.DiskriminierteVereinigungen
 
 // Discriminated Union: ein Wert ist GENAU EINER von mehreren, klar benannten Faellen -
 // F#s zentrales Werkzeug fuer Datenmodellierung, hat keine direkte Entsprechung in C#

@@ -1,4 +1,4 @@
-module Language_Features_F_Sharp.Berechnungsausdruecke
+module language_features_f_sharp.Berechnungsausdruecke
 
 // Computation Expression: ein eigener "Builder"-Typ legt fest, was "let!"/"return" innerhalb
 // eines { }-Blocks bedeuten - "async {}"/"seq {}" (siehe Asynchronitaet.fs, Iteratoren.fs) sind
