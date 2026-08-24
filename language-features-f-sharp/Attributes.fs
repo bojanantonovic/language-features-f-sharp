@@ -27,7 +27,9 @@ let rec show () =
     let method = t.GetMethod("Show")
     let attribute = method.GetCustomAttribute<AuthorAttribute>()
 
-    let authorName = if isNull (box attribute) then "unknown" else attribute.Name
+    // Option.ofObj: converts a possibly-null reference from a .NET API into an option
+    // (equivalent to C#'s "?." / "??").
+    let authorName = attribute |> Option.ofObj |> Option.map (fun a -> a.Name) |> Option.defaultValue "unknown"
 
     printfn "%s" authorName
 
@@ -37,8 +39,9 @@ let rec show () =
     let authorsByMethod =
         allMethods
         |> Array.choose (fun m ->
-            let a = m.GetCustomAttribute<AuthorAttribute>()
-            if isNull (box a) then None else Some $"{m.Name}: {a.Name}")
+            m.GetCustomAttribute<AuthorAttribute>()
+            |> Option.ofObj
+            |> Option.map (fun a -> $"{m.Name}: {a.Name}"))
         |> List.ofArray
 
     printfn "%s" (String.concat " | " authorsByMethod)

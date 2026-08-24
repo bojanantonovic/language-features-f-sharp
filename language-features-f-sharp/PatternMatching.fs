@@ -43,8 +43,8 @@ let show () =
     | :? int as number when number > 10 -> printfn "%d" number
     | _ -> ()
 
-    // List of mixed animals: List.filter with a type pattern in the lambda counts only the dogs
+    // List of mixed animals: List.filter with the type test operator (":?") counts only the dogs
     let animals: Animal list = [ Dog("Rex") :> Animal; Cat("Minka") :> Animal; Dog("Bello") :> Animal ]
-    let dogCount = animals |> List.filter (function :? Dog -> true | _ -> false) |> List.length
+    let dogCount = animals |> List.filter (fun a -> a :? Dog) |> List.length
 
     printfn "%d" dogCount

@@ -27,10 +27,10 @@ let show () =
     // List.map: turns each vehicle (via the interface) into its movement text
     let movements = vehicles |> List.map (fun vehicle -> vehicle.Move())
 
-    // Type pattern via ":?": filters just the cars out of the interface list
+    // Type test operator (":?"): evaluates directly to a bool, filters just the cars out of the interface list
     let carCount =
         vehicles
-        |> List.filter (function :? Car -> true | _ -> false)
+        |> List.filter (fun vehicle -> vehicle :? Car)
         |> List.length
 
     printfn "%s" (String.concat " / " movements)
